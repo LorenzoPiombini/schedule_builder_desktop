@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+import javax.swing.JOptionPane;
+
 import com.http_api_call_schedule_builder.LoginAuth;
 
 public class AppController {
@@ -30,8 +32,8 @@ public class AppController {
                         logInView.dispose();
                         mainFrame.setVisible(true);
                     } else {
-                        // display messages of error
-                        // authentication faild
+                        JOptionPane.showMessageDialog(logInView, "wrong username or Password, try agian!",
+                                "Login Error", JOptionPane.ERROR_MESSAGE);
                     }
 
                 } catch (IOException e1) {

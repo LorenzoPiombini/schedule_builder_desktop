@@ -20,7 +20,8 @@ public class MainFrame extends JFrame {
 
         setSize(1000, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+        setLocationRelativeTo(null);// display in the screen center
+
     }
 
     public JMenuBar createMenu() {

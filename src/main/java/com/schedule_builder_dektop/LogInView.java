@@ -24,9 +24,12 @@ public class LogInView extends JFrame {
         passwordDescription = new JLabel("Password: ");
         usernameField = new JTextField(10);
         passworField = new JTextField(10);
-        loginBtn = new JButton();
+        loginBtn = new JButton("Login");
 
         layoutComponents();
+        setSize(400, 200);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null); // display in the screen center
 
     }
 

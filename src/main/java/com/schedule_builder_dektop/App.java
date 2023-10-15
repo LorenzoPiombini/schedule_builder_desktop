@@ -2,19 +2,22 @@ package com.schedule_builder_dektop;
 
 import javax.swing.SwingUtilities;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
 
-            @Override
-            public void run() {
-                new MainFrame();
-            }
+        LogInView logInView = new LogInView();
+        MainFrame mainFrame = new MainFrame();
 
-        });
+        new AppController(mainFrame, logInView);
+
+        logInView.setVisible(true);
+        // SwingUtilities.invokeLater(new Runnable() {
+
+        // @Override
+        // public void run() {
+        // new MainFrame();
+        // }
+
+        // });
     }
 }
