@@ -4,8 +4,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import java.awt.event.ActionListener;
 
 public class LogInView extends JFrame {
@@ -18,24 +20,70 @@ public class LogInView extends JFrame {
 
     public LogInView() {
 
-        setLayout(new BorderLayout());
-
         userDescription = new JLabel("Username: ");
         passwordDescription = new JLabel("Password: ");
         usernameField = new JTextField(10);
         passworField = new JTextField(10);
         loginBtn = new JButton();
 
-        loginBtn.addActionListener(new ActionListener() {
+        layoutComponents();
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // create http library to performe the API calls
-                // and use it here
-            }
+    }
 
-        });
+    public void layoutComponents() {
+        setLayout(new GridBagLayout());
 
+        GridBagConstraints gc = new GridBagConstraints();
+
+        gc.weightx = 1;
+        gc.weighty = 0.1;
+
+        gc.gridx = 0;
+        gc.gridy = 0;
+        gc.anchor = GridBagConstraints.LINE_START;
+        add(userDescription, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 0;
+        gc.anchor = GridBagConstraints.LINE_START;
+        add(usernameField, gc);
+
+        // next row //
+
+        gc.weightx = 1;
+        gc.weighty = 0.1;
+
+        gc.gridx = 0;
+        gc.gridy = 1;
+        gc.anchor = GridBagConstraints.LINE_START;
+        add(passwordDescription, gc);
+
+        gc.gridx = 1;
+        gc.gridy = 1;
+        gc.anchor = GridBagConstraints.LINE_START;
+        add(passworField, gc);
+
+        // btn row //
+        gc.weightx = 1.0;
+        gc.weighty = 2.0;
+
+        gc.gridx = 0;
+        gc.gridy = 2;
+        gc.anchor = GridBagConstraints.CENTER;
+        add(loginBtn, gc);
+
+    }
+
+    public void addLogInBtnActionLisntener(ActionListener listner) {
+        loginBtn.addActionListener(listner);
+    }
+
+    public String getUsername() {
+        return usernameField.getText();
+    }
+
+    public String getPassword() {
+        return passworField.getText();
     }
 
 }
